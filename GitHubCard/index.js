@@ -33,7 +33,11 @@ axios.get('https://api.github.com/users/michesi').then(response => {
 */
 axios.get('https://api.github.com/users/michesi/followers').then(response => {
   console.log(response.data);
-
+  response.data.forEach(person => {
+    const followerCard = userCard(person)
+    addCard.appendChild(followerCard)
+  })
+ 
 })
 
 const followersArray = [
