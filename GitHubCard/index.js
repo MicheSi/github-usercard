@@ -51,6 +51,7 @@ const followersArray = [];
 */
 
 function userCard(object) {
+  // create elements
   const newCard = document.createElement('div'),
         newImage = document.createElement('img'),
         cardInfo = document.createElement('div'),
@@ -62,6 +63,19 @@ function userCard(object) {
         followers = document.createElement('p'),
         following = document.createElement('p'),
         bio = document.createElement('p');
+
+
+// add classes
+  newCard.classList.add('card');
+  cardInfo.classList.add('card-info');
+  nameH3.classList.add('name');
+  unserName.classList.add('username');
+
+// text content
+
+// append to parents
+
+  return newCard;
 }
 
 /* List of LS Instructors Github username's: 
