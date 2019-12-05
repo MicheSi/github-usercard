@@ -6,7 +6,9 @@ axios.get('https://api.github.com/users/michesi').then(response => {
   // console.log(response.data);
   const myCard = userCard(response.data)
   addCard.appendChild(myCard)
-
+})
+.catch(err => {
+  console.log(err);
 })
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
@@ -29,8 +31,18 @@ axios.get('https://api.github.com/users/michesi').then(response => {
           Using that array, iterate over it, requesting data for each user, creating a new card for each
           user, and adding that card to the DOM.
 */
+axios.get('https://api.github.com/users/michesi/followers').then(response => {
+  console.log(response.data);
 
-const followersArray = [];
+})
+
+const followersArray = [
+  'Judson00',
+  'aalvinlin',
+  'CAM603',
+  'mpaolodr',
+  'jDanielDetes'
+];
 
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
@@ -82,7 +94,7 @@ function userCard(object) {
   link.textContent = object.html_url;
   followers.textContent = `Followers: ${object.followers}`;
   following.textContent = `Following: ${object.following}`;
-  bio.textContent = object.bio;
+  bio.textContent = `Bio: ${object.bio}`;
 
 // append to parents
   newCard.appendChild(newImage);
