@@ -37,7 +37,9 @@ axios.get('https://api.github.com/users/michesi/followers').then(response => {
     const followerCard = userCard(person)
     addCard.appendChild(followerCard)
   })
- 
+})
+.catch(err => {
+  console.log(err);
 })
 
 const followersArray = [
