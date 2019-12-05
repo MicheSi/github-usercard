@@ -72,6 +72,15 @@ function userCard(object) {
   unserName.classList.add('username');
 
 // text content
+  newImage.src = object.avatar_url;
+  nameH3.textContent = object.name;
+  userName.textContent = object.login;
+  location.textContent = `Location: ${object.location}`;
+  profile.textContent = `Profile: ${link}`;
+  link.textContent = object.html_url;
+  followers.textContent = `Followers: ${object.followers}`;
+  following.textContent = `Following: ${object.following}`;
+  bio.textContent = object.bio;
 
 // append to parents
 
