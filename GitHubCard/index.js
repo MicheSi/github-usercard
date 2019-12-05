@@ -42,13 +42,16 @@ axios.get('https://api.github.com/users/michesi/followers').then(response => {
   console.log(err);
 })
 
-const followersArray = [
-  'Judson00',
-  'aalvinlin',
-  'CAM603',
-  'mpaolodr',
-  'jDanielDetes'
-];
+
+  const followersArray = [
+    'Judson00',
+    'aalvinlin',
+    'CAM603',
+    'mpaolodr',
+    'jDanielDetes'
+  ];
+
+
 
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
