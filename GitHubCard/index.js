@@ -3,7 +3,9 @@
            https://api.github.com/users/<your name>
 */
 axios.get('https://api.github.com/users/michesi').then(response => {
-  console.log(response.data);
+  // console.log(response.data);
+  const myCard = userCard(response.data)
+  addCard.appendChild(myCard)
 
 })
 
@@ -69,7 +71,7 @@ function userCard(object) {
   newCard.classList.add('card');
   cardInfo.classList.add('card-info');
   nameH3.classList.add('name');
-  unserName.classList.add('username');
+  userName.classList.add('username');
 
 // text content
   newImage.src = object.avatar_url;
@@ -96,6 +98,8 @@ function userCard(object) {
 
   return newCard;
 }
+
+const addCard = document.querySelector('.cards')
 
 /* List of LS Instructors Github username's: 
   tetondan
