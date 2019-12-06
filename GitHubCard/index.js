@@ -31,35 +31,37 @@ axios.get('https://api.github.com/users/michesi').then(response => {
           Using that array, iterate over it, requesting data for each user, creating a new card for each
           user, and adding that card to the DOM.
 */
-// axios.get('https://api.github.com/users/michesi/followers').then(response => {
-//   console.log(response.data);
-//   response.data.forEach(person => {
-//     const followerCard = userCard(person)
-//     addCard.appendChild(followerCard)
-//   })
-// })
-// .catch(err => {
-//   console.log(err);
-// })
-
-
-  const followersArray = [
-    'Judson00',
-    'aalvinlin',
-    'CAM603',
-    'mpaolodr',
-    'jDanielDetes'
-  ];
-
-  followersArray.forEach(person => {
-    axios.get('https://api.github.com/users/' + person).then(response => {
+axios.get('https://api.github.com/users/michesi/followers').then(response => {
+  console.log(response.data);
+  for (info of response.data) {
+    axios.get('https://api.github.com/users/' + info.login).then(response => {
       const followerCard = userCard(response.data)
-      addCard.appendChild(followerCard);
+      addCard.appendChild(followerCard)
     })
-    .catch(err => {
-      console.log(err);
-    })
-  })
+  }
+})
+.catch(err => {
+  console.log(err);
+})
+
+// Regular assignment
+  // const followersArray = [
+  //   'Judson00',
+  //   'aalvinlin',
+  //   'CAM603',
+  //   'mpaolodr',
+  //   'jDanielDetes'
+  // ];
+
+  // followersArray.forEach(person => {
+  //   axios.get('https://api.github.com/users/' + person).then(response => {
+  //     const followerCard = userCard(response.data)
+  //     addCard.appendChild(followerCard);
+  //   })
+  //   .catch(err => {
+  //     console.log(err);
+  //   })
+  // })
 
 
 
