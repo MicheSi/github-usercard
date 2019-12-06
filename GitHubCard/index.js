@@ -31,16 +31,16 @@ axios.get('https://api.github.com/users/michesi').then(response => {
           Using that array, iterate over it, requesting data for each user, creating a new card for each
           user, and adding that card to the DOM.
 */
-axios.get('https://api.github.com/users/michesi/followers').then(response => {
-  console.log(response.data);
-  response.data.forEach(person => {
-    const followerCard = userCard(person)
-    addCard.appendChild(followerCard)
-  })
-})
-.catch(err => {
-  console.log(err);
-})
+// axios.get('https://api.github.com/users/michesi/followers').then(response => {
+//   console.log(response.data);
+//   response.data.forEach(person => {
+//     const followerCard = userCard(person)
+//     addCard.appendChild(followerCard)
+//   })
+// })
+// .catch(err => {
+//   console.log(err);
+// })
 
 
   const followersArray = [
@@ -50,6 +50,12 @@ axios.get('https://api.github.com/users/michesi/followers').then(response => {
     'mpaolodr',
     'jDanielDetes'
   ];
+
+  followersArray.forEach(person => {
+    axios.get('https://api.github.com/users/' + person).then(response => {
+      addCard.appendChild(userCard(response.data));
+    })
+  })
 
 
 
