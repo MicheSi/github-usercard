@@ -53,7 +53,11 @@ axios.get('https://api.github.com/users/michesi').then(response => {
 
   followersArray.forEach(person => {
     axios.get('https://api.github.com/users/' + person).then(response => {
-      addCard.appendChild(userCard(response.data));
+      const followerCard = userCard(response.data)
+      addCard.appendChild(followerCard);
+    })
+    .catch(err => {
+      console.log(err);
     })
   })
 
